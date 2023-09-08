@@ -52,7 +52,7 @@ def comp_gradient(x,model_ls,delta=1e-5,var_idx_ls=[]):
 
     Return
     ------
-    grads: list, (num_vars,num_obs)
+    grads: ndarray, (num_vars,num_obs)
         gradients of given variables.
     '''
     y_hat_ls = []
@@ -79,4 +79,6 @@ def comp_gradient(x,model_ls,delta=1e-5,var_idx_ls=[]):
         grad = (y_hat_forward_avg - y_hat_avg) / delta 
         grad = np.reshape(grad,(1,-1))[0]
         grads.append(grad) 
+    
+    grads = np.array(grads)
     return grads

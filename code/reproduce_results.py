@@ -11,6 +11,19 @@ Ms = np.arange(101,201,1) # Monte Carlo repetition ids
 
 
 def get_name_of_all_covariates(Pc):
+    '''
+    get the names of all covariates
+
+    Parameter
+    ---------
+    Pc: int,
+        number of characteristics, and the number of covariates = 2*Pc
+    
+    Return
+    ------
+    covar_names: list,
+        names of all covariates
+    '''
     covar_names = []
     for covar_idx in range(0,Pc):
         covar_names.append('c'+str(covar_idx+1))
@@ -19,6 +32,21 @@ def get_name_of_all_covariates(Pc):
     return covar_names
 
 def get_covariate_name_in_math_text_from_idx(Pc,covar_idx): 
+    '''
+    get the name of a covariate in math text
+
+    Parameter
+    ---------
+    Pc: int,
+        number of characteristics
+    covar_idx: int, 
+        index of a covariate in the covariate list.
+
+    Return
+    ------
+    covariate_math_format: str
+        covariate name in math format
+    '''
     if covar_idx<Pc:
         covariate_math_format = r'$c_{i,' + str(covar_idx+1) + ',t}$'
     else:
@@ -28,15 +56,25 @@ def get_covariate_name_in_math_text_from_idx(Pc,covar_idx):
 
 def load_scaled_tau_samples_MC(Pc,N,T, m, sampled_NN, tot_iter):
     '''
+    load scaled tau[h_max] samples for all covariates for all different Monte Carlo repetitions.
+
     Parameter
     ---------
-    Pc: #covariates=2Pc
-    sampled_NN: #hidden layers of sampled nueral networks in discretization
-    tot_iter: #iterations in discretization
+    Pc: int,
+        number of characteristics
+    N: int,
+        number of firms
+    T: int,
+        number of months
+    sampled_NN: int,
+        number of hidden layers of sampled nueral networks in discretization
+    tot_iter: int,
+        number of iterations in discretization
 
     Return
     ------
-    scaled_tau_samples_MC: a (#MC, #iters, #covars) matrix of scaled tau[h_max] samples
+    scaled_tau_samples_MC: ndarray, (#MC, #iters, #covars)
+       scaled tau[h^(max)] samples for all covariates for all Monte Carlo repetitions
     '''
 
     scaled_tau_path = '../data/Pc'+str(Pc)+'/N'+str(N)+'_T'+str(T)+'/scaled_tau_samples/m'+str(m)+'_NN'+str(sampled_NN)+'/'
@@ -53,6 +91,26 @@ def load_scaled_tau_samples_MC(Pc,N,T, m, sampled_NN, tot_iter):
 
 
 def load_tstat_MC(Pc, N, T, fitted_NN):
+    '''
+    load test statistics of all covariates for all Monte Carlo repetitions.
+
+    Parameter
+    ---------
+    Pc: int,
+        number of characteristics
+    N: int,
+        number of firms
+    T: int,
+        number of months
+    sampled_NN: int,
+        number of hidden layers of fitted nueral networks
+
+    Return
+    ------
+    tstats_MC: ndarray, (num_MC,num_vars)
+        test statistics of all covariates for all Monte Carlo repetitions
+    '''
+
 
     tstat_path = '../data/Pc'+str(Pc)+'/N'+str(N)+'_T'+str(T)+'/test_statistics/NN'+str(fitted_NN)+'/'
 

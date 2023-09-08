@@ -24,7 +24,7 @@ def generate_tau_samples(tot_iter,x,m,num_layers,num_hidden_nodes_ls,activation_
 
     Return
     ------
-    tau_samples: array-like, (tot_iter, num_given_vars) 
+    tau_samples: ndarray, (tot_iter, num_given_vars) 
         tau[h^(max)] samples for interested or all variables.
     '''
     from test_statistic import comp_gradient
@@ -42,7 +42,8 @@ def generate_tau_samples(tot_iter,x,m,num_layers,num_hidden_nodes_ls,activation_
         tau_samples.append(msqr_grads)
         time_cost = (time.time()-t0)/60
         print(time_cost/i,'avg. mins per iteration,',time_cost/i*(tot_iter-i),'mins left')
-   
+    
+    tau_samples = np.array(tau_samples)
     return tau_samples
 
 def sample_NN_approximate_h_max(x,seed_value_base=0,m=500,num_layers=1,num_hidden_nodes_ls=[25],activation_hidden='sigmoid',\

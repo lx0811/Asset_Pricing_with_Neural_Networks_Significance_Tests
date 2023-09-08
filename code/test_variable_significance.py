@@ -60,7 +60,7 @@ def variable_significance_frequency(tstats_MC,scaled_tau_samples_MC,alpha,var_na
     ---------
     scaled_tau_samples_MC: ndarray, (num_MC,sample_len,num_vars)
         scaled tau[h^(max)] samples for multiple variables for all Monte Carlo repetitions
-    tstats_MC: list, (num_MC,num_vars)
+    tstats_MC: ndarray, (num_MC,num_vars)
         test statistics of multiple variables for all Monte Carlo repetitions
     alpha: float,
         significance level
