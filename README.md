@@ -1,5 +1,7 @@
 # Asset_Pricing_with_Neural_Networks_Significance_Tests
 
+This repository contains code, data, and results of the paper **[Asset pricing with neural networks: Significance tests](https://www.sciencedirect.com/science/article/pii/S0304407623002907)**, co-authored by [Hasan Fallahgoul](https://www.hfallahgoul.com/), Vincentius Franstianto and [Xin Lin](https://sites.google.com/view/xin-lin)
+
 ## Version
 
 Python 3.8.10
